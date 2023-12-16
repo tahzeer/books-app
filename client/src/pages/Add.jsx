@@ -20,7 +20,8 @@ const Add = () => {
   const handelClick = async (e) => {
     e.preventDefault();
     try {
-      await axios.post("https://localhost:8800/books", book);
+      await axios.post("http://localhost:8800/books", book);
+      navigate("/");
     } catch (err) {
       console.log(err);
     }
@@ -53,7 +54,9 @@ const Add = () => {
         onChange={handelChange}
         name="cover"
       />
-      <button onClick={handelClick}>Add</button>
+      <button className="formButton" onClick={handelClick}>
+        Add
+      </button>
     </div>
   );
 };
